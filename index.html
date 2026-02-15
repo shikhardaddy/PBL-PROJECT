@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PBL Presentation | 2026</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ChartJS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
+
+        body {
+            background-color: #020617;
+            color: #f8fafc;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #60a5fa, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="fixed w-full z-50 glass border-b border-slate-800/50 px-8 py-4 flex justify-between items-center">
+    <div>
+        <span class="text-xl font-black uppercase">PBL <span class="text-blue-500">2026</span></span>
+        <p class="text-[10px] text-slate-400 uppercase tracking-widest">
+            Dept. of Computer Science & Engineering
+        </p>
+    </div>
+    <div class="hidden md:flex gap-8 text-[11px] uppercase tracking-widest font-bold opacity-70">
+        <a href="#problem" class="hover:text-blue-400 transition">Problem</a>
+        <a href="#methodology" class="hover:text-blue-400 transition">Methodology</a>
+        <a href="#results" class="hover:text-blue-400 transition">Results</a>
+        <a href="#team" class="hover:text-blue-400 transition">Team</a>
+    </div>
+</nav>
+
+<main class="max-w-6xl mx-auto px-6 pt-40 pb-32 space-y-32">
+
+<!-- HERO -->
+<section class="text-center">
+    <div class="inline-block px-4 py-1 border border-slate-800 rounded-full text-slate-500 text-[10px] font-mono mb-6 uppercase tracking-widest">
+        ID: 2427030236
+    </div>
+
+    <h1 class="text-6xl md:text-7xl font-extrabold mb-8 uppercase leading-tight">
+        <span class="gradient-text">
+            AI-Driven Predictive & Sensor-Assisted Intelligent Traffic Signal System
+        </span>
+    </h1>
+
+    <p class="text-slate-400 max-w-3xl mx-auto italic text-lg leading-relaxed border-l-2 border-blue-500/30 pl-6 text-left">
+        A hybrid AI system that predicts traffic congestion using historical data,
+        behavioral patterns, Google Maps integration, and weather APIs,
+        while using minimal low-power sensors for real-time validation.
+    </p>
+</section>
+
+<!-- PROBLEM -->
+<section id="problem" class="grid md:grid-cols-2 gap-12 items-stretch">
+
+<div class="glass p-10 rounded-[2.5rem] flex flex-col justify-center border-l-4 border-blue-600">
+    <h2 class="text-3xl font-extrabold mb-6">Problem Statement</h2>
+    <p class="text-slate-400 leading-relaxed text-justify">
+        Traditional traffic signals operate on fixed timing cycles regardless of traffic density.
+        This causes long waiting times during low traffic and severe congestion during peak hours.
+        Pure sensor-based systems consume high power and require heavy maintenance.
+        There is a need for a predictive, energy-efficient, intelligent traffic management system.
+    </p>
+</div>
+
+<div class="space-y-6">
+    <div class="glass p-7 rounded-3xl border-r-4 border-blue-500/50">
+        <h3 class="text-blue-400 font-bold text-xs uppercase tracking-widest mb-2">
+            Literature Review
+        </h3>
+        <p class="text-sm text-slate-500 italic">
+            Existing systems rely on fixed timers or heavy real-time sensor usage.
+            Most lack predictive modeling using long-term behavioral and API-integrated data.
+        </p>
+    </div>
+
+    <div class="glass p-7 rounded-3xl border-r-4 border-purple-500/50">
+        <h3 class="text-purple-400 font-bold text-xs uppercase tracking-widest mb-2">
+            Research Gap
+        </h3>
+        <p class="text-sm text-slate-500 italic">
+            Our approach combines AI-based prediction with selective sensor validation,
+            balancing efficiency, sustainability, and accuracy.
+        </p>
+    </div>
+</div>
+</section>
+
+<!-- METHODOLOGY -->
+<section id="methodology" class="space-y-12">
+<h2 class="text-4xl font-black text-center uppercase">
+System <span class="text-blue-500">Methodology</span>
+</h2>
+
+<div class="grid md:grid-cols-3 gap-8">
+
+<div class="glass p-8 rounded-3xl text-center">
+    <i class="fas fa-database text-blue-500 text-3xl mb-4"></i>
+    <h3 class="font-bold mb-2 uppercase text-xs tracking-widest">Dataset / Input</h3>
+    <p class="text-sm text-slate-500">
+        Historical traffic data, Google Maps API,
+        Weather API, government databases,
+        and IoT sensor validation data.
+    </p>
+</div>
+
+<div class="glass p-8 rounded-3xl text-center">
+    <i class="fas fa-microchip text-purple-500 text-3xl mb-4"></i>
+    <h3 class="font-bold mb-2 uppercase text-xs tracking-widest">Model Architecture</h3>
+    <p class="text-sm text-slate-500">
+        LSTM, Regression & Random Forest models
+        for traffic prediction with hybrid control architecture.
+    </p>
+</div>
+
+</div>
+</section>
+
+<!-- RESULTS -->
+<section id="results" class="glass p-12 rounded-[3.5rem] border-t-4 border-blue-500">
+<h2 class="text-3xl font-black mb-12 text-center uppercase">
+Results & <span class="text-blue-500">Analysis</span>
+</h2>
+
+<div class="h-80">
+    <canvas id="resultsChart"></canvas>
+</div>
+
+</section>
+
+</main>
+
+<footer class="py-12 text-center bg-black/40 border-t border-slate-900">
+    <p class="text-slate-600 text-[10px] font-bold tracking-[0.3em] uppercase">
+        Manipal University Jaipur
+    </p>
+</footer>
+
+<script>
+new Chart(document.getElementById('resultsChart'), {
+    type: 'bar',
+    data: {
+        labels: ['Fixed Timer System','AI Hybrid System'],
+        datasets: [{
+            data: [68,90],
+            backgroundColor: ['#1e293b','#3b82f6'],
+            borderRadius: 15,
+            barThickness: 60
+        }]
+    },
+    options:{
+        responsive:true,
+        maintainAspectRatio:false,
+        plugins:{ legend:{display:false}},
+        scales:{
+            y:{ beginAtZero:true, grid:{color:'#ffffff05'} },
+            x:{ grid:{display:false}}
+        }
+    }
+});
+</script>
+
+</body>
+</html>
+
