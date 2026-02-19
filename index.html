@@ -6,234 +6,300 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
 
 body{
     margin:0;
-    background:linear-gradient(135deg,#0f172a,#1e293b);
-    color:#f1f5f9;
     font-family:'Inter',sans-serif;
+    background:#0b1120;
+    color:#e2e8f0;
+    overflow-x:hidden;
+}
+
+/* Animated Gradient Glow */
+body::before{
+content:"";
+position:fixed;
+top:0;left:0;
+width:100%;height:100%;
+background:radial-gradient(circle at 20% 30%,#3b82f630,transparent 40%),
+           radial-gradient(circle at 80% 70%,#a855f730,transparent 40%);
+z-index:-2;
+}
+
+/* Smooth scroll */
+html{
+scroll-behavior:smooth;
 }
 
 .section{
-    min-height:100vh;
-    padding:120px 8%;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
+min-height:100vh;
+padding:120px 8%;
+display:flex;
+flex-direction:column;
+justify-content:center;
 }
 
+/* Glass cards */
 .card{
-    background:rgba(255,255,255,0.05);
-    backdrop-filter:blur(15px);
-    border:1px solid rgba(255,255,255,0.1);
-    border-radius:20px;
-    padding:35px;
-    transition:0.4s;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(20px);
+border:1px solid rgba(255,255,255,0.1);
+border-radius:25px;
+padding:40px;
+transition:0.4s ease;
 }
 
 .card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 0 40px rgba(59,130,246,0.4);
+transform:translateY(-10px);
+box-shadow:0 0 50px rgba(59,130,246,0.5);
 }
 
-h1,h2{
-    background:linear-gradient(90deg,#3b82f6,#a855f7);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
+.gradient{
+background:linear-gradient(90deg,#38bdf8,#a855f7);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
-a{
-    color:#60a5fa;
-    text-decoration:underline;
+.fade{
+opacity:0;
+transform:translateY(40px);
+transition:1s ease;
+}
+.fade.show{
+opacity:1;
+transform:translateY(0);
+}
+
+.stat{
+font-size:70px;
+font-weight:800;
+background:linear-gradient(90deg,#38bdf8,#a855f7);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 </style>
 </head>
 
 <body>
 
-<!-- INTRODUCTION -->
-<section class="section">
-<h1 class="text-6xl font-extrabold mb-6">Addressing Urban Congestion</h1>
+<!-- HERO -->
+<section class="section text-center fade">
+<h1 class="text-7xl font-extrabold gradient mb-8">
+AI-Driven Predictive & Sensor-Assisted Intelligent Traffic Signal System
+</h1>
+
+<p class="text-xl max-w-4xl mx-auto leading-relaxed">
+Urban congestion is one of the most pressing infrastructure challenges
+faced by modern cities. Our system introduces an intelligent,
+data-driven approach that combines predictive analytics,
+behavioral modeling, and selective IoT validation to create
+adaptive and energy-efficient traffic management.
+</p>
+</section>
+
+<!-- PROBLEM -->
+<section class="section fade">
+<h2 class="text-5xl font-bold gradient mb-10">
+The Challenge of Static Traffic Management
+</h2>
 
 <div class="card">
-<h2 class="text-3xl font-bold mb-4">The Challenge of Static Traffic Management</h2>
+<p class="leading-relaxed text-lg">
+Traditional traffic signals operate on fixed timing cycles.
+These static systems fail to adapt to dynamic traffic patterns
+that change throughout the day due to office hours, school schedules,
+festivals, tourism, weather conditions, and infrastructure changes.
 
-<p>
-Traffic congestion remains a persistent and costly challenge in urban environments,
-leading to increased fuel consumption, severe air pollution,
-and significant time wastage for commuters.
-Traditional traffic signals operate on fixed timing cycles,
-a static mechanism that fails to adapt to dynamic traffic density changes.
+This lack of adaptability results in:
 </p>
 
-<ul class="mt-6 space-y-2">
-<li>• Long waiting times during low-traffic periods.</li>
-<li>• Poor traffic management during peak hours.</li>
-<li>• Wastage of manpower and energy.</li>
-<li>• Inability to consider weather, events, or holidays.</li>
+<ul class="mt-6 space-y-2 text-lg">
+<li>• Increased waiting time during low traffic periods</li>
+<li>• Severe congestion during peak hours</li>
+<li>• Higher fuel consumption and carbon emissions</li>
+<li>• Poor emergency vehicle handling</li>
+<li>• Energy wastage in continuous sensor systems</li>
 </ul>
 
-<p class="mt-6">
-The proposed solution is a predictive, data-driven, semi-automated system
-designed to intelligently optimize signal timing.
+<p class="mt-6 text-lg">
+Hence, we propose a predictive and semi-automated hybrid model
+that intelligently optimizes signal timing before congestion occurs.
 </p>
 </div>
 </section>
 
 <!-- OBJECTIVES -->
-<section class="section">
-<h1 class="text-5xl font-bold mb-12">Core Goals of the Intelligent Signal System</h1>
-
-<div class="grid md:grid-cols-3 gap-8">
-
-<div class="card">
-<h3 class="text-xl font-bold mb-3">Predict Traffic Patterns</h3>
-Utilize historical and external datasets to forecast traffic density
-across different times and conditions.
-</div>
-
-<div class="card">
-<h3 class="text-xl font-bold mb-3">Analyze Mass Behavior</h3>
-Incorporate office hours, festivals, tourist seasons,
-and large-scale behavioral patterns.
-</div>
-
-<div class="card">
-<h3 class="text-xl font-bold mb-3">Integrate Diverse Data</h3>
-Combine Google Maps, Weather APIs, and Government traffic databases.
-</div>
-
-<div class="card">
-<h3 class="text-xl font-bold mb-3">Minimize Power Use</h3>
-Deploy limited IoT sensors strictly for real-time validation.
-</div>
-
-<div class="card">
-<h3 class="text-xl font-bold mb-3">Enable Dynamic Adjustment</h3>
-Adjust signal timing dynamically based on AI predictions.
-</div>
-
-</div>
-</section>
-
-<!-- METHODOLOGY -->
-<section class="section">
-<h1 class="text-5xl font-bold mb-12">Two-Layer Hybrid Architecture</h1>
+<section class="section fade">
+<h2 class="text-5xl font-bold gradient mb-12">
+Core Objectives of the System
+</h2>
 
 <div class="grid md:grid-cols-2 gap-10">
 
 <div class="card">
-<h2 class="text-2xl font-bold mb-4">Layer 1: Predictive AI Engine</h2>
-This layer forecasts future traffic using LSTM, Regression,
-and Random Forest models trained on historical datasets.
-It integrates:
-<ul class="mt-4 space-y-2">
-<li>• <a href="https://developers.google.com/maps/documentation" target="_blank">Google Maps Platform API</a></li>
-<li>• <a href="https://openweathermap.org/api" target="_blank">Weather API (OpenWeather)</a></li>
-<li>• Government traffic databases</li>
-</ul>
-</div>
-
-<div class="card">
-<h2 class="text-2xl font-bold mb-4">Layer 2: Sensor-Assisted Validation</h2>
-Low-power IoT sensors (IR/Ultrasonic) validate AI predictions.
-If deviation exceeds threshold,
-corrective adjustments are triggered while maintaining energy efficiency.
-</div>
-
-</div>
-</section>
-
-<!-- PREDICTIVE FACTORS -->
-<section class="section">
-<h1 class="text-5xl font-bold mb-12">Forecasting Traffic: AI Modeling Categories</h1>
-
-<div class="grid md:grid-cols-3 gap-8">
-
-<div class="card">Time-Based (office hours, weekends)</div>
-<div class="card">Event-Based (festivals, sports)</div>
-<div class="card">Weather-Based (rain, fog, smog)</div>
-<div class="card">Geographical (tourist zones)</div>
-<div class="card">Behavioral (shopping seasons)</div>
-<div class="card">Infrastructure (road work)</div>
-<div class="card">External Data (Google APIs & transport analytics)</div>
-
-</div>
-</section>
-
-<!-- RESULTS -->
-<section class="section text-center">
-<h1 class="text-5xl font-bold mb-12">Transformative Impact on Urban Mobility</h1>
-
-<div class="grid md:grid-cols-4 gap-10">
-
-<div class="card">
-<h2 class="text-4xl font-bold">25%</h2>
-Congestion Reduction
-</div>
-
-<div class="card">
-<h2 class="text-4xl font-bold">15%</h2>
-Fuel Savings
-</div>
-
-<div class="card">
-<h2 class="text-4xl font-bold">90%</h2>
-Energy Efficiency
-</div>
-
-<div class="card">
-<h2 class="text-4xl font-bold">100%</h2>
-Scalability
-</div>
-
-</div>
-
-<p class="mt-10 max-w-4xl mx-auto">
-The system ensures intelligent adaptive signal management,
-leading to a more efficient and sustainable urban environment.
+<h3 class="text-2xl font-bold mb-4">1. Predict Traffic Patterns</h3>
+<p>
+Using historical datasets and time-series forecasting models
+like LSTM and Random Forest,
+the system anticipates congestion trends across different time frames.
 </p>
+</div>
+
+<div class="card">
+<h3 class="text-2xl font-bold mb-4">2. Analyze Mass Behavior</h3>
+<p>
+Behavioral data such as seasonal shopping,
+tourism influx, office hours, and large-scale public events
+are incorporated into the prediction model.
+</p>
+</div>
+
+<div class="card">
+<h3 class="text-2xl font-bold mb-4">3. Integrate Diverse Data Sources</h3>
+<p>
+The system integrates:
+• Google Maps Platform API  
+• Weather APIs  
+• Government traffic databases  
+• Historical transport logs  
+to improve prediction accuracy.
+</p>
+</div>
+
+<div class="card">
+<h3 class="text-2xl font-bold mb-4">4. Minimize Power Consumption</h3>
+<p>
+Low-power IoT sensors validate predictions only when deviation thresholds are exceeded,
+ensuring sustainability.
+</p>
+</div>
+
+</div>
 </section>
 
-<!-- TECHNOLOGY STACK -->
-<section class="section">
-<h1 class="text-5xl font-bold mb-12">Technology Stack</h1>
+<!-- ARCHITECTURE -->
+<section class="section fade">
+<h2 class="text-5xl font-bold gradient mb-10">
+Two-Layer Hybrid Architecture
+</h2>
 
 <div class="grid md:grid-cols-2 gap-10">
 
 <div class="card">
-<h2 class="text-xl font-bold mb-4">Programming & AI</h2>
-• Python  
-• TensorFlow / Scikit-learn  
+<h3 class="text-2xl font-bold mb-4">Layer 1: Predictive AI Engine</h3>
+<p>
+This layer uses machine learning models trained on
+vast historical datasets. It processes:
+• Time-based patterns  
+• Event-based spikes  
+• Weather disruptions  
+• Geographic congestion zones  
+
+APIs Used:
+<a href="https://developers.google.com/maps/documentation" target="_blank">Google Maps Platform</a> |
+<a href="https://openweathermap.org/api" target="_blank">OpenWeather API</a>
+</p>
 </div>
 
 <div class="card">
-<h2 class="text-xl font-bold mb-4">Data APIs</h2>
-• <a href="https://developers.google.com/maps/documentation" target="_blank">Google Maps Platform</a>  
-• <a href="https://openweathermap.org/api" target="_blank">OpenWeather API</a>  
-</div>
-
-<div class="card">
-<h2 class="text-xl font-bold mb-4">IoT Hardware</h2>
-• Raspberry Pi  
-• IR/Ultrasonic Sensors  
-</div>
-
-<div class="card">
-<h2 class="text-xl font-bold mb-4">Cloud & Databases</h2>
-• AWS / Firebase  
-• MongoDB  
+<h3 class="text-2xl font-bold mb-4">Layer 2: Sensor-Assisted Validation</h3>
+<p>
+Instead of continuous monitoring,
+IoT sensors such as IR and Ultrasonic modules
+validate AI predictions in real-time,
+triggering corrective adjustments only when necessary.
+</p>
 </div>
 
 </div>
 </section>
+
+<!-- IMPACT -->
+<section class="section text-center fade">
+<h2 class="text-5xl font-bold gradient mb-12">
+Projected Impact
+</h2>
+
+<div class="grid md:grid-cols-4 gap-12">
+
+<div>
+<div class="stat" data-target="25">0</div>
+<p>Congestion Reduction</p>
+</div>
+
+<div>
+<div class="stat" data-target="15">0</div>
+<p>Fuel Savings</p>
+</div>
+
+<div>
+<div class="stat" data-target="30">0</div>
+<p>Waiting Time Reduced</p>
+</div>
+
+<div>
+<div class="stat" data-target="90">0</div>
+<p>Energy Efficiency</p>
+</div>
+
+</div>
+</section>
+
+<!-- FUTURE -->
+<section class="section fade">
+<h2 class="text-5xl font-bold gradient mb-10">
+Future Enhancements
+</h2>
+
+<div class="card">
+<p class="text-lg leading-relaxed">
+• Reinforcement Learning for self-optimizing signals  
+• Emergency vehicle priority routing  
+• Smart city integration dashboards  
+• Solar-powered adaptive intersections  
+• Real-time commuter notification systems  
+• Integration with autonomous vehicle networks  
+</p>
+</div>
+</section>
+
+<script>
+// Scroll fade animation
+const faders=document.querySelectorAll('.fade');
+window.addEventListener('scroll',()=>{
+faders.forEach(el=>{
+if(el.getBoundingClientRect().top<window.innerHeight-100){
+el.classList.add('show');
+}
+});
+});
+
+// Counter animation
+const counters=document.querySelectorAll('.stat');
+counters.forEach(counter=>{
+let update=()=>{
+let target=+counter.getAttribute('data-target');
+let count=+counter.innerText;
+let increment=target/100;
+if(count<target){
+counter.innerText=Math.ceil(count+increment);
+setTimeout(update,20);
+}else{
+counter.innerText=target+"%";
+}
+};
+update();
+});
+</script>
 
 </body>
 </html>
+
+
 
 
 
